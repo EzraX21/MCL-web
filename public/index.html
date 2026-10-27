@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MCL — Minecraft: Java Edition 启动器</title>
+  <meta name="description" id="meta-description" content="MCL（mclauncher）：开源、轻量的 Minecraft: Java Edition 启动器。下载原版、装加载器、整合包、光影，原生 GUI + TUI。" />
+  <meta name="theme-color" content="#0d6ab3" />
+  <meta property="og:title" content="MCL — Minecraft: Java Edition 启动器" />
+  <meta property="og:description" content="开源、轻量的 Minecraft 启动器。原生 GUI + TUI，支持 Fabric/Quilt/Forge/NeoForge、整合包、光影与崩溃分析。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/EzraX21/mclauncher/main/docs/gui-versions.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">跳到主要内容</a>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="MCL">
+        <img src="assets/logo.png" width="34" height="34" alt="" />
+        <span>MCL</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#features" data-i18n="nav.features">功能</a>
+        <a href="#screens" data-i18n="nav.screens">截图</a>
+        <a href="#download" data-i18n="nav.download">下载</a>
+        <a href="#status" data-i18n="nav.status">状态</a>
+        <a href="https://github.com/EzraX21/mclauncher" target="_blank" rel="noopener" data-i18n="nav.docs">文档</a>
+        <a class="nav-github" href="https://github.com/EzraX21/mclauncher" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 8 3.84c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </a>
+      </div>
+      <div class="nav-tools">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换主题" title="切换主题">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"/></svg>
+        </button>
+        <button class="lang-btn" id="lang-toggle" type="button" aria-label="Switch language">EN</button>
+      </div>
+
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <a class="version-chip" id="release-badge" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+            <span class="dot"></span><span id="release-version">v3.7.0</span>
+            <span class="chip-new" data-i18n="hero.latest">最新版</span>
+          </a>
+          <h1 data-i18n-html="hero.title">把 Minecraft<br /><em>交还给玩家</em></h1>
+          <p class="lead" data-i18n="hero.sub">开源、轻量的 Minecraft: Java Edition 启动器。下载原版、装加载器、导入整合包、管理光影，双击就能玩。</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" id="download-primary" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+              <span id="download-primary-label" data-i18n="hero.download">下载 MCL</span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/EzraX21/mclauncher" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.6 7.6 0 0 1 8 3.84c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+              <span data-i18n="hero.github">在 GitHub 查看</span>
+            </a>
+          </div>
+          <p class="hero-note" data-i18n="hero.note">Windows 10/11 · Linux x64 · 开源 GPL-3.0-or-later</p>
+
+          <ul class="hero-points">
+            <li data-i18n="hero.point1">原生 GUI（WebView2 / WebKitGTK）</li>
+            <li data-i18n="hero.point2">无遥测、无广告</li>
+            <li data-i18n="hero.point3">TUI 作为特色模式</li>
+          </ul>
+        </div>
+
+        <div class="hero-shot">
+          <div class="shot-frame">
+            <img src="assets/screens/versions.png" alt="MCL 版本列表界面" width="1200" height="760" />
+          </div>
+          <div class="shot-glow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow" data-i18n="features.eyebrow">为什么用 MCL</span>
+          <h2 data-i18n="features.title">该有的都有，不该有的没有</h2>
+          <p data-i18n="features.sub">从下载到启动只做必要的事：快、干净、不塞广告，也不偷偷上传数据。</p>
+        </header>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+            <h3 data-i18n="features.gui.title">原生窗口</h3>
+            <p data-i18n="features.gui.desc">Linux 用 WebKitGTK，Windows 用 WebView2，双击就是桌面应用，不是浏览器标签。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+            <h3 data-i18n="features.loader.title">版本与加载器</h3>
+            <p data-i18n="features.loader.desc">原版、Fabric、Quilt、Forge、NeoForge 一条龙，Java 按版本要求自动选。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 8v8l9 5 9-5V8l-9-5Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+            <h3 data-i18n="features.modpack.title">整合包导入</h3>
+            <p data-i18n="features.modpack.desc">Modrinth .mrpack 与 CurseForge zip，自动补原版、加载器和 overrides。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M2 12h3m14 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+            <h3 data-i18n="features.resource.title">光影与材质</h3>
+            <p data-i18n="features.resource.desc">从 Modrinth 搜光影、材质包，装进当前实例，随时删。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 4.4 3.4 8.3 8 9 4.6-.7 8-4.6 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3 data-i18n="features.crash.title">崩溃分析</h3>
+            <p data-i18n="features.crash.desc">读 crash-report，直接告诉你 Java 版本、内存、缺前置还是模组冲突。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <h3 data-i18n="features.login.title">微软登录</h3>
+            <p data-i18n="features.login.desc">设备代码流登录正版账号，token 只存本机；离线模式始终可用。</p>
+            <span class="badge-wait" data-i18n="features.login.badge">等待 Mojang 白名单</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="screens">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow" data-i18n="screens.eyebrow">界面</span>
+          <h2 data-i18n="screens.title">PCL 风格的干净桌面</h2>
+          <p data-i18n="screens.sub">左侧导航、白底卡片、蓝色主色；深色主题跟随系统。</p>
+        </header>
+
+        <div class="shot-tabs" role="tablist" aria-label="截图">
+          <button class="shot-tab active" data-shot="versions" role="tab" aria-selected="true" data-i18n="screens.versions">版本</button>
+          <button class="shot-tab" data-shot="install" role="tab" aria-selected="false" data-i18n="screens.install">安装</button>
+          <button class="shot-tab" data-shot="mods" role="tab" aria-selected="false" data-i18n="screens.mods">模组 / 整合包</button>
+          <button class="shot-tab" data-shot="resources" role="tab" aria-selected="false" data-i18n="screens.resources">资源</button>
+          <button class="shot-tab" data-shot="settings" role="tab" aria-selected="false" data-i18n="screens.settings">设置</button>
+          <button class="shot-tab" data-shot="dark" role="tab" aria-selected="false" data-i18n="screens.dark">深色</button>
+        </div>
+        <figure class="shot-viewer">
+          <img id="shot-image" src="assets/screens/versions.png" width="1200" height="760" alt="MCL 界面截图" />
+          <figcaption id="shot-caption" data-i18n="screens.caption.versions">版本列表：启动、装加载器、崩溃分析</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow" data-i18n="download.eyebrow">下载</span>
+          <h2 data-i18n="download.title">选你的平台，直接拿包</h2>
+          <p data-i18n="download.sub">按钮指向 GitHub Release 的实际产物；下载失败就去 Releases 页面。</p>
+        </header>
+
+        <div class="download-meta">
+          <span class="meta-pill"><span data-i18n="download.latest">最新版本</span> <strong id="release-version-2">v3.7.0</strong></span>
+          <span class="meta-pill" id="release-date-pill" hidden><span data-i18n="download.released">发布于</span> <strong id="release-date"></strong></span>
+          <a class="meta-pill" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener" data-i18n="download.all">全部版本与校验和</a>
+        </div>
+
+        <div class="download-grid">
+          <article class="platform">
+            <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4v7H3V5.5Zm0 13L10.5 20v-7H3v5.5ZM11.5 3.8 21 2v9h-9.5V3.8Zm0 16.4L21 22v-9h-9.5v7.2Z"/></svg> Windows</h3>
+            <p class="platform-note" data-i18n="download.windows.note">Windows 10/11 x64 · WebView2 自带</p>
+            <a class="asset" data-asset="windows-setup" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <span><strong data-i18n="download.setup">安装包</strong><small data-i18n="download.setup.desc">Inno Setup，开始菜单 + 桌面快捷方式</small></span>
+              <span class="asset-size" data-size="windows-setup"></span>
+            </a>
+            <a class="asset" data-asset="windows-portable" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <span><strong data-i18n="download.portable">便携版</strong><small data-i18n="download.portable.desc">解压即用，含 mclw.exe 与 mcl.exe</small></span>
+              <span class="asset-size" data-size="windows-portable"></span>
+            </a>
+          </article>
+
+          <article class="platform">
+            <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2c-3 3-4 6-4 9 0 2 1 4 2 5l-1 4h2l1-3h2l1 3h2l-1-4c1-1 2-3 2-5 0-3-1-6-4-9h-2Zm-1 8a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"/></svg> Linux</h3>
+            <p class="platform-note" data-i18n="download.linux.note">x64 · 需要 WebKitGTK + PyGObject</p>
+            <a class="asset" data-asset="linux-deb" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <span><strong>Debian / Ubuntu</strong><small>.deb · dpkg -i</small></span><span class="asset-size" data-size="linux-deb"></span>
+            </a>
+            <a class="asset" data-asset="linux-rpm" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <span><strong>Fedora / RHEL</strong><small>.rpm · rpm -i</small></span><span class="asset-size" data-size="linux-rpm"></span>
+            </a>
+            <a class="asset" data-asset="linux-arch" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <span><strong>Arch Linux</strong><small>.pkg.tar.zst · pacman -U</small></span><span class="asset-size" data-size="linux-arch"></span>
+            </a>
+            <a class="asset" data-asset="linux-portable" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
+              <span><strong data-i18n="download.portable">便携版</strong><small>.tar.gz · <span data-i18n="download.portable.deps">自带依赖</span></small></span><span class="asset-size" data-size="linux-portable"></span>
+            </a>
+          </article>
+        </div>
+
+        <p class="download-foot">
+          <a id="checksum-link" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener" data-i18n="download.checksum">SHA256SUMS.txt</a>
+          <span>·</span>
+          <span data-i18n="download.other">其他平台：查看 GitHub Releases</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="status">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow" data-i18n="status.eyebrow">项目状态</span>
+          <h2 data-i18n="status.title">做到哪一步了</h2>
+          <p data-i18n="status.sub">不画饼：下面是真实状态，没做完的会直接写出来。</p>
+        </header>
+
+        <div class="status-grid">
+          <div class="status-card done">
+            <h3 data-i18n="status.done.title">已完成</h3>
+            <ul>
+              <li data-i18n="status.done.1">原版下载 / 版本隔离 / Java 运行时</li>
+              <li data-i18n="status.done.2">Fabric · Quilt · Forge · NeoForge</li>
+              <li data-i18n="status.done.3">模组、整合包、光影、材质</li>
+              <li data-i18n="status.done.4">崩溃分析、TUI、原生 GUI、多主题</li>
+            </ul>
+          </div>
+          <div class="status-card wait">
+            <h3 data-i18n="status.wait.title">等待外部</h3>
+            <ul>
+              <li data-i18n="status.wait.1">微软登录：等 Mojang 白名单审核</li>
+              <li data-i18n="status.wait.2">CurseForge 整合包：需要 API key</li>
+              <li data-i18n="status.wait.3">AUR：等待首次提交</li>
+            </ul>
+          </div>
+          <div class="status-card plan">
+            <h3 data-i18n="status.plan.title">计划中</h3>
+            <ul>
+              <li data-i18n="status.plan.1">服务器列表 / 快速进服</li>
+              <li data-i18n="status.plan.2">启动器自动更新</li>
+              <li data-i18n="status.plan.3">Java 管理界面</li>
+              <li data-i18n="status.plan.4">地图与数据包</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top">
+          <img src="assets/logo.png" width="30" height="30" alt="" /><span>MCL</span>
+        </a>
+        <p class="footer-note" data-i18n="footer.note">开源 Minecraft: Java Edition 启动器，GPL-3.0-or-later。与 Mojang / Microsoft 无关联。</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/EzraX21/mclauncher" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/EzraX21/mclauncher/releases" target="_blank" rel="noopener" data-i18n="footer.releases">Releases</a>
+        <a href="https://github.com/EzraX21/mclauncher/blob/main/README.md" target="_blank" rel="noopener" data-i18n="footer.docs">文档</a>
+        <a href="https://github.com/EzraX21/mclauncher/blob/main/PRIVACY.md" target="_blank" rel="noopener" data-i18n="footer.privacy">隐私</a>
+        <a href="https://github.com/EzraX21/mclauncher/blob/main/LICENSE" target="_blank" rel="noopener" data-i18n="footer.license">许可证</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 MCL contributors</span>
+      <span data-i18n="footer.built">用 Python + TypeScript 写的</span>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
