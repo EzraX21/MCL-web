@@ -50,6 +50,25 @@ npx wrangler login
 npm run deploy:pages
 ```
 
+### GitHub Actions 自动部署（已带）
+
+`.github/workflows/deploy.yml`：push `main` 时自动部署 Pages + 下载 Worker。
+
+在仓库 Settings → Secrets and variables → Actions 添加：
+
+| Secret | 值 |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API Token（需要 Pages:Edit、Workers Scripts:Edit） |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 账户 ID |
+
+`CLOUDFLARE_ACCOUNT_ID` 已经用 gh 配好；`CLOUDFLARE_API_TOKEN` 需要你自己加（不要发聊天里）：
+
+```bash
+gh secret set CLOUDFLARE_API_TOKEN --repo EzraX21/MCL-web
+```
+
+没配 token 时 workflow 会自动跳过，不会红。
+
 ## 部署到 Cloudflare Workers（静态资源）
 
 静态站点配置在 `wrangler.site.jsonc`：
