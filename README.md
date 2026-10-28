@@ -160,7 +160,7 @@ https://mcl-dl.xxx.workers.dev/releases/v3.7.0/mcl-3.7.0-windows-x64-setup.exe
 
 - 官网：**https://mcl.ezrax21.kdns.fr**（Worker `mcl-web` 承接自定义域名）
 - 备用：https://mcl-web.pages.dev
-- 下载：https://mcl-dl.xjr119911.workers.dev
+- 下载：https://dl.mcl.ezrax21.kdns.fr
 
 ## 目录
 

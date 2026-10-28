@@ -2,5 +2,5 @@
 // 也可以填 Worker 反代地址（https://mcl-dl.<subdomain>.workers.dev）。
 // 留空则直接使用 GitHub Release 链接。
 window.MCL_CONFIG = {
-  downloadBase: "https://mcl-dl.xjr119911.workers.dev",
+  downloadBase: "https://dl.mcl.ezrax21.kdns.fr",
 };
