@@ -62,6 +62,47 @@ npm run deploy
 
 首次部署后可在 Dashboard 绑定自定义域名。
 
+## 直连下载（Cloudflare R2）
+
+官网默认链 GitHub。想要「从自己域名下载」，用 R2：
+
+1. Cloudflare 控制台 → R2 → 创建 bucket（例如 `mcl-downloads`）
+2. 给 bucket 绑定自定义域名，例如 `dl.example.com`
+3. 在 `public/config.js` 填：
+
+```js
+window.MCL_CONFIG = {
+  downloadBase: "https://dl.example.com",
+};
+```
+
+4. 在 **mclauncher** 仓库配 R2 secrets（见下），之后每次发 Release 会自动同步。
+
+同步布局：
+
+```
+releases/v3.7.0/mcl-3.7.0-windows-x64-setup.exe
+releases/v3.7.0/...（全部产物 + SHA256SUMS.txt）
+latest/...（最新版副本，短缓存）
+latest.json（版本、文件名、大小、sha256）
+```
+
+官网会把按钮改成 `https://dl.example.com/releases/<tag>/<file>`；留空 `downloadBase` 就是原来的 GitHub 链接。
+
+### R2 secrets
+
+在 **mclauncher** 仓库 Settings → Secrets and variables → Actions：
+
+| Secret | 值 |
+| --- | --- |
+| `R2_ACCOUNT_ID` | Cloudflare 账户 ID |
+| `R2_ACCESS_KEY_ID` | R2 API Token 的 Access Key ID |
+| `R2_SECRET_ACCESS_KEY` | R2 API Token 的 Secret Access Key |
+| `R2_BUCKET` | bucket 名 |
+
+API Token 在 R2 → Manage R2 API Tokens 创建，权限选 **Object Read & Write**，限定这个 bucket。
+没配 secrets 时 release 里的 R2 job 会自动跳过，不影响发版。
+
 ## 目录
 
 ```

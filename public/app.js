@@ -1,6 +1,7 @@
 const REPO = "EzraX21/mclauncher";
 const RELEASES = `https://github.com/${REPO}/releases`;
 const LATEST = `${RELEASES}/latest`;
+const DOWNLOAD_BASE = String((window.MCL_CONFIG && window.MCL_CONFIG.downloadBase) || "").replace(/\/+$/, "");
 
 const I18N = {
   zh: {
@@ -253,6 +254,14 @@ function detectOS() {
   return "linux";
 }
 
+function assetURL(asset, tag) {
+  if (!asset) return LATEST;
+  if (DOWNLOAD_BASE && tag) {
+    return `${DOWNLOAD_BASE}/releases/${encodeURIComponent(tag)}/${encodeURIComponent(asset.name)}`;
+  }
+  return asset.browser_download_url;
+}
+
 function assetFor(key) {
   if (!release || !Array.isArray(release.assets)) return null;
   const suffix = ASSETS[key];
@@ -271,7 +280,7 @@ function updatePrimary() {
     : os === "linux" ? "hero.download.linux"
     : os === "mac" ? "hero.download.mac" : "hero.download.other";
   label.textContent = t(key);
-  button.href = asset ? asset.browser_download_url : LATEST;
+  button.href = asset ? assetURL(asset, release && release.tag_name) : LATEST;
 }
 
 function formatSize(bytes) {
@@ -297,14 +306,15 @@ function applyRelease(data) {
   const checksum = document.getElementById("checksum-link");
   if (checksum) {
     const checksumAsset = (data.assets || []).find((asset) => asset.name === "SHA256SUMS.txt");
-    checksum.href = checksumAsset ? checksumAsset.browser_download_url
-      : `${RELEASES}/download/${tag}/SHA256SUMS.txt`;
+    checksum.href = DOWNLOAD_BASE
+      ? `${DOWNLOAD_BASE}/releases/${encodeURIComponent(tag)}/SHA256SUMS.txt`
+      : (checksumAsset ? checksumAsset.browser_download_url : `${RELEASES}/download/${tag}/SHA256SUMS.txt`);
   }
   document.querySelectorAll("a[data-asset]").forEach((link) => {
     const key = link.getAttribute("data-asset");
     const asset = assetFor(key);
     if (asset) {
-      link.href = asset.browser_download_url;
+      link.href = assetURL(asset, tag);
       const sizeNode = document.querySelector(`[data-size="${key}"]`);
       if (sizeNode) sizeNode.textContent = formatSize(asset.size);
     } else {
