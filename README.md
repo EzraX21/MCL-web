@@ -1,6 +1,8 @@
 # MCL Web
 
-MCL（mclauncher）的官方网站：静态站点，下载按钮直接指向 GitHub Release，
+MCL（mclauncher）的官方网站：**https://mcl.ezrax21.kdns.fr**
+
+静态站点，下载按钮直接指向 GitHub Release，
 可托管在 **Cloudflare Pages** 或 **Cloudflare Workers（静态资源）**。
 
 - 默认简体中文，右上角可切 English
