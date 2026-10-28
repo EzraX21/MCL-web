@@ -5,8 +5,8 @@
   "description": "Official website for MCL (mclauncher)",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "deploy:pages": "wrangler pages deploy public --project-name mcl-web",
+    "deploy": "wrangler deploy -c wrangler.site.jsonc",
+    "deploy:pages": "wrangler pages deploy public --project-name mcl-web --branch main",
     "deploy:dl": "wrangler deploy -c worker/wrangler.jsonc"
   },
   "devDependencies": {

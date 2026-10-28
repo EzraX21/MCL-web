@@ -47,12 +47,12 @@ http://localhost:8099/?lang=en&theme=light
 ```bash
 npm install --include=dev
 npx wrangler login
-npx wrangler pages deploy public --project-name mcl-web
+npm run deploy:pages
 ```
 
 ## 部署到 Cloudflare Workers（静态资源）
 
-仓库已带 `wrangler.jsonc`：
+静态站点配置在 `wrangler.site.jsonc`：
 
 ```bash
 npm install --include=dev
@@ -148,7 +148,8 @@ MCL-web/
 │   ├── _redirects          /download、/github 跳转
 │   ├── robots.txt
 │   └── site.webmanifest
-├── wrangler.jsonc          Workers 静态资源配置
+├── wrangler.site.jsonc     Workers 静态站点配置
+├── worker/                  GitHub 下载反代（Workers）
 ├── package.json
 └── README.md
 ```
