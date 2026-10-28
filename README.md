@@ -156,6 +156,12 @@ https://mcl-dl.xxx.workers.dev/releases/v3.7.0/mcl-3.7.0-windows-x64-setup.exe
 - 大文件走的是「Worker 流式转发」，不占 R2 存储
 - 以后有卡了，R2 仍然是更好的方案（零出站费、可绑自定义域名）
 
+## 线上
+
+- 官网：**https://mcl.ezrax21.kdns.fr**（Worker `mcl-web` 承接自定义域名）
+- 备用：https://mcl-web.pages.dev
+- 下载：https://mcl-dl.xjr119911.workers.dev
+
 ## 目录
 
 ```
