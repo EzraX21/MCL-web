@@ -103,6 +103,38 @@ latest.json（版本、文件名、大小、sha256）
 API Token 在 R2 → Manage R2 API Tokens 创建，权限选 **Object Read & Write**，限定这个 bucket。
 没配 secrets 时 release 里的 R2 job 会自动跳过，不影响发版。
 
+## 没有银行卡？用 Worker 反代（免费）
+
+R2 开通要走 checkout 流程，通常需要绑定支付方式；没有卡就用 Workers 免费计划反代 GitHub：
+
+```bash
+# 已带 worker/github-proxy.js 和 worker/wrangler.jsonc
+npx wrangler login
+npm run deploy:dl
+```
+
+部署后得到类似 `https://mcl-dl.<你的子域>.workers.dev`，把它填进 `public/config.js`：
+
+```js
+window.MCL_CONFIG = {
+  downloadBase: "https://mcl-dl.<你的子域>.workers.dev",
+};
+```
+
+Worker 的路由和 R2 版布局一致：
+
+```
+https://mcl-dl.xxx.workers.dev/releases/v3.7.0/mcl-3.7.0-windows-x64-setup.exe
+```
+
+已验证：小文件、Range 请求、49.8 MB 的 Windows 安装包都能正常流式下载。
+
+注意：
+
+- Workers 免费计划每天 100,000 请求，速度取决于 GitHub 和 Cloudflare
+- 大文件走的是「Worker 流式转发」，不占 R2 存储
+- 以后有卡了，R2 仍然是更好的方案（零出站费、可绑自定义域名）
+
 ## 目录
 
 ```
