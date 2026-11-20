@@ -2,7 +2,7 @@
 
 MCL（mclauncher）的官方网站：**https://mcl.ezrax21.kdns.fr**
 
-静态站点，下载按钮直接指向 GitHub Release，
+静态站点，下载按钮默认指向 GitHub Release，可在 `public/config.js` 切到自己的 Worker / R2 直连；
 可托管在 **Cloudflare Pages** 或 **Cloudflare Workers（静态资源）**。
 
 - 默认简体中文，右上角可切 English
@@ -85,7 +85,8 @@ npm run deploy
 
 ## 直连下载（Cloudflare R2）
 
-官网默认链 GitHub。想要「从自己域名下载」，用 R2：
+官网默认走 `public/config.js` 里的 `downloadBase`（当前是 `https://dl.mcl.ezrax21.kdns.fr` 的 Worker 反代）；
+想换回 GitHub 直链就把它留空。要用 R2 的话：
 
 1. Cloudflare 控制台 → R2 → 创建 bucket（例如 `mcl-downloads`）
 2. 给 bucket 绑定自定义域名，例如 `dl.example.com`
@@ -170,6 +171,7 @@ MCL-web/
 │   ├── index.html          页面结构
 │   ├── styles.css          主题与响应式
 │   ├── app.js              i18n、下载按钮、截图切换
+│   ├── config.js           下载域名配置（downloadBase）
 │   ├── assets/             logo、截图、图标
 │   ├── _headers            Cloudflare 响应头
 │   ├── _redirects          /download、/github 跳转
@@ -195,12 +197,27 @@ https://api.github.com/repos/EzraX21/mclauncher/releases/latest
 
 GitHub 匿名 API 有速率限制；超限时所有按钮退回 `releases/latest`，页面照常可用。
 
+`config.js` 设了 `downloadBase` 时，匹配到的产物会改写成
+`<downloadBase>/releases/<tag>/<文件名>`；留空则用 GitHub 的 `browser_download_url`。
+
 ## 改内容
 
 - 文案：`public/app.js` 里的 `I18N.zh` / `I18N.en`
 - 截图：替换 `public/assets/screens/*.png`，配图说明在 `I18N` 的 `screens.caption.*`
 - 颜色：`public/styles.css` 顶部 CSS 变量
 - 版本/产物：不用改页面，发新 Release 自动更新
+
+### 内容同步
+
+截图来自 **mclauncher** 仓库的 `docs/`（截图脚本生成），不要手改：
+
+```bash
+for f in versions instance install mods datapacks resources link toolbox settings dark; do
+  cp ../mclauncher/docs/gui-$f.png public/assets/screens/$f.png
+done
+```
+
+功能列表和「项目状态」以 mclauncher `README.md` 的状态表为准；发版或界面改动后一起更新。
 
 ## 许可
 

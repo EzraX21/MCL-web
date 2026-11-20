@@ -144,7 +144,7 @@ h2 { font-size: clamp(26px, 3.23vw, 38px); line-height: 1.2; letter-spacing: -.6
 .feature-icon svg { width: 22px; height: 22px; }
 .feature h3 { font-size: 16px; margin: 0 0 6px; }
 .feature p { color: var(--muted); font-size: 13.5px; margin: 0; }
-.badge-wait { display: inline-block; margin-top: 12px; font-size: 11px; color: var(--amber); background: color-mix(in srgb, var(--amber) 14%, transparent); border-radius: 999px; padding: 2px 9px; }
+.badge-off { display: inline-block; margin-top: 12px; font-size: 11px; color: var(--muted); background: var(--panel-soft); border: 1px solid var(--border); border-radius: 999px; padding: 2px 9px; }
 
 /* screenshots */
 .shot-tabs { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 22px; }
