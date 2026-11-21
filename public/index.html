@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MCL — Minecraft: Java Edition 启动器</title>
-  <meta name="description" id="meta-description" content="MCL（mclauncher）：开源、轻量的 Minecraft: Java Edition 启动器。下载原版、装加载器、整合包、光影，原生 GUI + TUI。" />
+  <meta name="description" id="meta-description" content="MCL（mclauncher）：开源、轻量的 Minecraft: Java Edition 启动器。下载原版、装加载器、模组 / 整合包 / 数据包 / 光影，联机进服，原生 GUI + TUI。" />
   <meta name="theme-color" content="#0d6ab3" />
   <meta property="og:title" content="MCL — Minecraft: Java Edition 启动器" />
-  <meta property="og:description" content="开源、轻量的 Minecraft 启动器。原生 GUI + TUI，支持 Fabric/Quilt/Forge/NeoForge、整合包、光影与崩溃分析。" />
+  <meta property="og:description" content="开源、轻量的 Minecraft 启动器。原生 GUI + TUI，支持 Fabric/Quilt/Forge/NeoForge、模组 / 整合包 / 数据包、光影、联机与崩溃分析。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mcl.ezrax21.kdns.fr/" />
   <link rel="canonical" href="https://mcl.ezrax21.kdns.fr/" />
@@ -56,7 +56,7 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <a class="version-chip" id="release-badge" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener">
-            <span class="dot"></span><span id="release-version">v3.7.0</span>
+            <span class="dot"></span><span id="release-version">v3.19.0</span>
             <span class="chip-new" data-i18n="hero.latest">最新版</span>
           </a>
           <h1 data-i18n-html="hero.title">把 Minecraft<br /><em>交还给玩家</em></h1>
@@ -112,12 +112,27 @@
           <article class="feature">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 8v8l9 5 9-5V8l-9-5Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
             <h3 data-i18n="features.modpack.title">整合包导入</h3>
-            <p data-i18n="features.modpack.desc">Modrinth .mrpack 与 CurseForge zip，自动补原版、加载器和 overrides。</p>
+            <p data-i18n="features.modpack.desc">Modrinth .mrpack 与 CurseForge zip 导入，自动补原版、加载器和 overrides（CurseForge 自动下载模组需要 API key）；已装版本也能导出成 .mrpack。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v12h14V8M10 12h4"/></svg></div>
+            <h3 data-i18n="features.datapacks.title">数据包</h3>
+            <p data-i18n="features.datapacks.desc">从 Modrinth 搜数据包，装进指定存档的 datapacks 目录。</p>
           </article>
           <article class="feature">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M2 12h3m14 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
             <h3 data-i18n="features.resource.title">光影与材质</h3>
             <p data-i18n="features.resource.desc">从 Modrinth 搜光影、材质包，装进当前实例，随时删。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+            <h3 data-i18n="features.link.title">联机</h3>
+            <p data-i18n="features.link.desc">读取游戏自带的 servers.dat，显示延迟、在线人数、版本与 MOTD，点一下直接进服。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Z"/><path d="M9 9V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4"/><path d="M3 13h18"/></svg></div>
+            <h3 data-i18n="features.toolbox.title">百宝箱</h3>
+            <p data-i18n="features.toolbox.desc">关于、环境诊断、检查更新，快捷打开配置 / 游戏 / 日志 / 导出目录。</p>
           </article>
           <article class="feature">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 4.4 3.4 8.3 8 9 4.6-.7 8-4.6 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
@@ -126,9 +141,9 @@
           </article>
           <article class="feature">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-            <h3 data-i18n="features.login.title">微软登录</h3>
-            <p data-i18n="features.login.desc">设备代码流登录正版账号，token 只存本机；离线模式始终可用。</p>
-            <span class="badge-wait" data-i18n="features.login.badge">等待 Mojang 白名单</span>
+            <h3 data-i18n="features.account.title">离线账号与皮肤</h3>
+            <p data-i18n="features.account.desc">默认离线模式；自定义皮肤 PNG 生成资源包，替换默认 Steve/Alex 贴图。</p>
+            <span class="badge-off" data-i18n="features.account.badge">微软登录已停用</span>
           </article>
         </div>
       </div>
@@ -170,7 +185,7 @@
         </header>
 
         <div class="download-meta">
-          <span class="meta-pill"><span data-i18n="download.latest">最新版本</span> <strong id="release-version-2">v3.7.0</strong></span>
+          <span class="meta-pill"><span data-i18n="download.latest">最新版本</span> <strong id="release-version-2">v3.19.0</strong></span>
           <span class="meta-pill" id="release-date-pill" hidden><span data-i18n="download.released">发布于</span> <strong id="release-date"></strong></span>
           <a class="meta-pill" href="https://github.com/EzraX21/mclauncher/releases/latest" target="_blank" rel="noopener" data-i18n="download.all">全部版本与校验和</a>
         </div>
@@ -227,27 +242,27 @@
           <div class="status-card done">
             <h3 data-i18n="status.done.title">已完成</h3>
             <ul>
-              <li data-i18n="status.done.1">原版下载 / 版本隔离 / Java 运行时</li>
+              <li data-i18n="status.done.1">原版下载 / 版本管理（六个标签）/ Java 运行时</li>
               <li data-i18n="status.done.2">Fabric · Quilt · Forge · NeoForge</li>
-              <li data-i18n="status.done.3">模组、整合包、光影、材质</li>
-              <li data-i18n="status.done.4">崩溃分析、TUI、原生 GUI、多主题</li>
+              <li data-i18n="status.done.3">模组、整合包（导入 / 导出）、数据包、光影、材质</li>
+              <li data-i18n="status.done.4">联机：服务器列表、延迟与在线人数、一键进服</li>
+              <li data-i18n="status.done.5">崩溃分析、环境诊断、离线皮肤</li>
+              <li data-i18n="status.done.6">原生 GUI、TUI、多主题、Linux / Windows 打包、检查更新</li>
             </ul>
           </div>
           <div class="status-card wait">
-            <h3 data-i18n="status.wait.title">等待外部</h3>
+            <h3 data-i18n="status.wait.title">等待 / 暂停</h3>
             <ul>
-              <li data-i18n="status.wait.1">微软登录：等 Mojang 白名单审核</li>
-              <li data-i18n="status.wait.2">CurseForge 整合包：需要 API key</li>
-              <li data-i18n="status.wait.3">AUR：等待首次提交</li>
+              <li data-i18n="status.wait.1">微软登录：Mojang 未通过申请，已停用，仅离线模式</li>
+              <li data-i18n="status.wait.2">CurseForge 整合包自动下载：需要 API key，尚未做真实整合包回归</li>
+              <li data-i18n="status.wait.3">AUR：注册暂停，PKGBUILD 与 CI 已就绪</li>
             </ul>
           </div>
           <div class="status-card plan">
             <h3 data-i18n="status.plan.title">计划中</h3>
             <ul>
-              <li data-i18n="status.plan.1">服务器列表 / 快速进服</li>
-              <li data-i18n="status.plan.2">启动器自动更新</li>
-              <li data-i18n="status.plan.3">Java 管理界面</li>
-              <li data-i18n="status.plan.4">地图与数据包</li>
+              <li data-i18n="status.plan.1">启动器自动更新（目前只做检查，不自动替换）</li>
+              <li data-i18n="status.plan.2">地图下载（还没做）</li>
             </ul>
           </div>
         </div>
